@@ -6,19 +6,26 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-defined( 'WPE_CORE_VERSION' ) or define('WPE_CORE_VERSION', '1.3.0') ;
+defined( 'BESTBUG_CORE_VERSION' ) or define('BESTBUG_CORE_VERSION', '1.3.0') ;
 
-defined( 'WPE_CORE_URL' ) or define('WPE_CORE_URL', plugins_url( '/', __FILE__ )) ;
-defined( 'WPE_CORE_PATH' ) or define('WPE_CORE_PATH', basename( dirname( __FILE__ ))) ;
-defined( 'WPE_CORE_TEXTDOMAIN' ) or define('WPE_CORE_TEXTDOMAIN', 'wpelite') ;
+defined( 'BESTBUG_CORE_URL' ) or define('BESTBUG_CORE_URL', plugins_url( '/', __FILE__ )) ;
+defined( 'BESTBUG_CORE_PATH' ) or define('BESTBUG_CORE_PATH', basename( dirname( __FILE__ ))) ;
+defined( 'BESTBUG_CORE_TEXTDOMAIN' ) or define('BESTBUG_CORE_TEXTDOMAIN', 'bestbug') ;
 
-if ( ! class_exists( 'WPE_Core_Class' ) ) {
+
+defined( 'BESTBUG_CORE_VERSION' ) or define('BESTBUG_CORE_VERSION', '1.3.0') ;
+
+defined( 'BESTBUG_CORE_URL' ) or define('BESTBUG_CORE_URL', plugins_url( '/', __FILE__ )) ;
+defined( 'BESTBUG_CORE_PATH' ) or define('BESTBUG_CORE_PATH', basename( dirname( __FILE__ ))) ;
+defined( 'BESTBUG_CORE_TEXTDOMAIN' ) or define('BESTBUG_CORE_TEXTDOMAIN', 'bestbug') ;
+
+if ( ! class_exists( 'BestBug_Core_Class' ) ) {
 	/**
-	 * WPE_Core_Class Class
+	 * BestBug_Core_Class Class
 	 *
 	 * @since	1.0
 	 */
-	class WPE_Core_Class {
+	class BestBug_Core_Class {
 
 
 		/**
@@ -30,18 +37,17 @@ if ( ! class_exists( 'WPE_Core_Class' ) ) {
 		function __construct() {
 			add_action( 'plugins_loaded', array( $this, 'loadTextDomain' ) );
 			add_action( 'admin_footer', array( $this, 'ajax_loading') );
-			
 			include_once 'classes/helper.class.php';
-
 		}
 
 		public static function adminEnqueueScripts() {
-			wp_enqueue_style( 'bb-core', WPE_CORE_URL . '/assets/admin/css/style.css', array(), WPE_CORE_VERSION );
-			wp_enqueue_script( 'bb-core', WPE_CORE_URL . '/assets/admin/js/script.js', array( 'jquery', 'wp-color-picker' ), WPE_CORE_VERSION, true );
+			wp_enqueue_style( 'bb-core', BESTBUG_CORE_URL . '/assets/admin/css/style.css', array(), BESTBUG_CORE_VERSION );
+			wp_enqueue_script( 'bb-core', BESTBUG_CORE_URL . '/assets/admin/js/script.js', array( 'jquery'), BESTBUG_CORE_VERSION, true );
+
 		}
 
 		public static function enqueueScripts() {
-			wp_enqueue_style( 'bb-css', WPE_CORE_URL . '/assets/css/style.css', array(), WPE_CORE_VERSION );
+			wp_enqueue_style( 'bb-css', BESTBUG_CORE_URL . '/assets/css/style.css', array(), BESTBUG_CORE_VERSION );
 		}
 		
 		public static function support($lib = '', $options = ''){
@@ -56,11 +62,11 @@ if ( ! class_exists( 'WPE_Core_Class' ) ) {
 						include_once 'extend/vc-params/index.php';
 					}
 					break;
-				case 'options':
-					include_once 'classes/options.class.php';
-					break;
 				case 'meta_box':
 					include_once 'classes/meta_box.class.php';
+					break;
+				case 'options':
+					include_once 'classes/options.class.php';
 					break;
 				case 'posttypes':
 					include_once 'classes/posttypes.class.php';
@@ -69,13 +75,13 @@ if ( ! class_exists( 'WPE_Core_Class' ) ) {
 					include_once 'libs/simple_html_dom.php';
 					break;
 				default:
-					# code...
+					
 					break;
 			}
 		}
 
 		public function loadTextDomain() {
-			load_plugin_textdomain( WPE_CORE_TEXTDOMAIN, false, WPE_CORE_PATH . '/languages/' );
+			load_plugin_textdomain( BESTBUG_CORE_TEXTDOMAIN, false, BESTBUG_CORE_PATH . '/languages/' );
 		}
 		
 		public function ajax_loading(){
@@ -90,5 +96,5 @@ if ( ! class_exists( 'WPE_Core_Class' ) ) {
 		}
 
 	}
-	new WPE_Core_Class();
+	new BestBug_Core_Class();
 }

@@ -9,6 +9,6 @@ include "posttypes.class.php";
 // include "options.class.php";
 // include "filter.class.php";
 
-if(class_exists('WooCommerce')) {
-	include "woo.class.php";
-}
+// if(class_exists('WooCommerce')) {
+// 	include "woo.class.php";
+// }

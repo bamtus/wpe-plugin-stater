@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: The plugin name
+Plugin Name: The plugin name WPE
 Description: The description.
 Author: WPElite.net
 Version: 1.0
@@ -21,8 +21,8 @@ defined( 'WPE_PLUGIN_URL' ) or define('WPE_PLUGIN_URL', plugins_url( '/', __FILE
 
 defined( 'WPE_PLUGIN_PATH' ) or define('WPE_PLUGIN_PATH', basename( dirname( __FILE__ ))) ;
 defined( 'WPE_PLUGIN_TEXTDOMAIN' ) or define('WPE_PLUGIN_TEXTDOMAIN', plugins_url( '/', __FILE__ )) ;
-
-
+defined( 'WPE_PLUGIN_POSTTYPE' ) or define('WPE_PLUGIN_POSTTYPE', 'wpe_plugin_posttype') ;
+defined( 'WPE_META_POST' ) or define('WPE_META_POST', 'wpe_plugin_posttype') ;
 if ( ! class_exists( 'WPE_PLUGIN_CLASS' ) ) {
 	/**
 	 * WPE_PLUGIN_CLASS Class
@@ -43,7 +43,7 @@ if ( ! class_exists( 'WPE_PLUGIN_CLASS' ) ) {
 				include_once 'wpe-core/index.php';
 			}
 			WPE_CORE_CLASS::support('options');
-			
+			WPE_CORE_CLASS::support('meta_box');
 			if(is_admin()) {
 				include_once 'includes/admin/index.php';
 			}
