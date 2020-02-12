@@ -5,7 +5,7 @@
         </label>
     </div>
     <div class="bb-field">
-        <input id="<?php echo esc_attr($field['param_name']) ?>" class="bb-textfield" name="<?php echo esc_attr($field['param_name']) ?>" type="text" placeholder ="<?php if(!empty($field['placeholder'])) echo bb_esc_html($field['placeholder'])?>" value="<?php echo esc_attr($field['value']) ?>" />
+        <input id="<?php echo esc_attr($field['param_name']) ?>" class="bb-datetime-local" name="<?php echo esc_attr($field['param_name']) ?>" type="datetime-local" value="<?php echo esc_attr($field['value']) ?>" />
     </div>
     <div class="bb-desc">
         <?php if(!empty($field['description'])) echo bb_esc_html($field['description']) ?>

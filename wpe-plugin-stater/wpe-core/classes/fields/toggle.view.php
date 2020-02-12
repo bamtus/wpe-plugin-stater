@@ -1,6 +1,6 @@
 <div class="bb-field-row" data-dependency="<?php echo ($dependency!='')?'true':'false' ?>" data-element="<?php if($dependency!='') echo esc_attr($field['dependency']['element']) ?>" data-value="<?php  if($dependency!='') echo esc_attr(implode(',', $field['dependency']['value'])) ?>">
     <div class="bb-label">
-        <label>
+        <label for="<?php echo esc_attr($field['param_name']) ?>-checkbox">
             <?php if(!empty($field['heading'])) esc_html_e($field['heading']) ?>
         </label>
     </div>

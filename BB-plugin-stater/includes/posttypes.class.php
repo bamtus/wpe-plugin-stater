@@ -37,7 +37,8 @@ if ( ! class_exists( 'BB_PLUGIN_POSTTYPES' ) ) {
 			BestBug_Core_Meta_Box::adminEnqueueScripts();
 		}
 		public function enqueueScripts(){
-        }
+		}
+		
 		public function register_posttypes($posttypes) {
 			if( empty($posttypes) ) {
 				$posttypes = array();
@@ -85,6 +86,7 @@ if ( ! class_exists( 'BB_PLUGIN_POSTTYPES' ) ) {
 			$posttypes[BB_PLUGIN_POSTTYPE] = $args;
 			return $posttypes;
 		}
+
 		public function add_meta_boxes($options) {
 			$options[] = array(
 				'ID' => 'whatsapp-account-info',
