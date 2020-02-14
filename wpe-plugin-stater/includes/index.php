@@ -6,8 +6,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 // include "helper.class.php";
 include "posttypes.class.php";
-// include "options.class.php";
+include "options.class.php";
 // include "filter.class.php";
+// include "shortcodes/index.php";
+// include "widgets/index.php";
 
 if(class_exists('WooCommerce')) {
 	include "woo.class.php";

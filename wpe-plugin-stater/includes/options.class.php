@@ -70,8 +70,8 @@ if ( ! class_exists( 'WPE_PLUGIN_OPTIONS' ) ) {
 				'type' => 'options_fields',
 				'menu' => array(
 					// add_submenu_page || add_menu_page
-					'type' => 'add_submenu_page',
-					'parent_slug' => 'edit.php?post_type=' . WPE_PLUGIN_POSTTYPE,
+					'type' => 'add_menu_page',
+					// 'parent_slug' => 'edit.php?post_type=' . WPE_PLUGIN_POSTTYPE,
 					'page_title' => esc_html('Settings', 'wpelite'),
 					'menu_title' => esc_html('Settings', 'wpelite'),
 					'capability' => 'manage_options',

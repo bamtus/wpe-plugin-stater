@@ -23,6 +23,9 @@ defined( 'WPE_PLUGIN_PATH' ) or define('WPE_PLUGIN_PATH', basename( dirname( __F
 defined( 'WPE_PLUGIN_TEXTDOMAIN' ) or define('WPE_PLUGIN_TEXTDOMAIN', plugins_url( '/', __FILE__ )) ;
 defined( 'WPE_PLUGIN_POSTTYPE' ) or define('WPE_PLUGIN_POSTTYPE', 'wpe_plugin_posttype') ;
 defined( 'WPE_META_POST' ) or define('WPE_META_POST', 'wpe_plugin_posttype') ;
+
+defined( 'WPE_PLUGIN_PAGESLUG' ) or define('WPE_PLUGIN_PAGESLUG', 'wpe_plugin_settings') ;
+
 if ( ! class_exists( 'WPE_PLUGIN_CLASS' ) ) {
 	/**
 	 * WPE_PLUGIN_CLASS Class
