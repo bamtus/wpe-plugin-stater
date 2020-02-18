@@ -26,7 +26,7 @@ if ( ! class_exists( 'WPE_Core_Meta_Box' ) ) {
 		}
 
 		public static function adminEnqueueScripts() {
-			
+			wp_enqueue_script( 'meta_box', WPE_CORE_URL .'/assets/admin/js/meta_box.js', array( 'jquery' ), WPE_CORE_VERSION, true );
 		}
         public function add_meta_boxes() {
             
@@ -43,7 +43,6 @@ if ( ! class_exists( 'WPE_Core_Meta_Box' ) ) {
                     $option["post_type"] ,
                     $option["context"]);
             }
-            var_dump($this->nonce_action);
         }
         public function meta_filds($post, $option){
             wp_nonce_field('wpe_nonce_active_field', 'wpe_nonce_name_field');
@@ -52,14 +51,12 @@ if ( ! class_exists( 'WPE_Core_Meta_Box' ) ) {
                     <tbody>
             <?php
                 foreach ($this->fields[$option["id"]] as $key => $option) {
-                    if (in_array($option["type"],array('text','textarea','radio','color','select','time','date_time'))):
+                    if (in_array($option["type"],array('text','textarea','radio','color','select','time','date_time','tab'))):
                         $meta_exists = get_post_meta($post->ID,  $option['param_name']);
                         if (is_array($meta_exists) && count($meta_exists) > 0) {
                             $option['value'] = $meta_exists[0];
                         } 
                         include 'meta_fields/'.$option["type"].'.field.php';
-                    elseif($option["type"] == 'custom'):
-                        echo $option["callback"];
                     endif;
                 }
             ?>

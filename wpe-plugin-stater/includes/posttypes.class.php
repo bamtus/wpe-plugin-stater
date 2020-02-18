@@ -22,7 +22,6 @@ if ( ! class_exists( 'WPE_PLUGIN_POSTTYPES' ) ) {
 		function __construct() {
 			$this->init();
 			add_filter( 'bb_register_posttypes', array( $this, 'register_posttypes' ), 10, 1 );
-			add_filter( 'wpe_add_meta_box', array( $this, 'add_meta_boxes' ), 10, 1 );
 		}
 
 		public function init() {
@@ -87,77 +86,6 @@ if ( ! class_exists( 'WPE_PLUGIN_POSTTYPES' ) ) {
 			);
 			$posttypes[WPE_PLUGIN_POSTTYPE] = $args;
 			return $posttypes;
-		}
-		public function add_meta_boxes($options) {
-			$options[] = array(
-				'ID' => 'whatsapp-account-info',
-				'title' => 'Account Information',
-				'post_type'=> WPE_PLUGIN_POSTTYPE,
-				'context' => 'normal',
-				'fields' => array(
-					array(
-						'type' => 'text',
-						'heading'     => esc_html__('text', 'wpelite' ),
-						'param_name'  => WPE_META_POST.'text',
-						'value' => 'ahihi11111',
-						'description' => esc_html__( 'text', 'wpelite' ),
-					),
-					array(
-						'type' => 'textarea',
-						'heading'     => esc_html__('textarea', 'wpelite' ),
-						'cols'=>"3",
-						'rows'=>"3",
-						'param_name'  => WPE_META_POST.'textarea',
-						'value' => 'ahihi11111',
-						'description' => esc_html__( 'textarea', 'wpelite' ),
-					),
-					array(
-						'type' => 'radio',
-						'heading'     => esc_html__('radio', 'wpelite' ),
-						'options'=> array(
-							'round' => esc_html__('Round', 'wpelite' ),
-							'square' => esc_html__('Square', 'wpelite' ),
-						),
-						'horizontal' => 'yes',
-						'param_name'  => WPE_META_POST.'radio',
-						'value' => 'square',
-						'description' => esc_html__( 'radio', 'wpelite' ),
-					),
-					array(
-						'type' => 'select',
-						'heading'     => esc_html__('radio', 'wpelite' ),
-						'options'=> array(
-							'round' => esc_html__('Round', 'wpelite' ),
-							'square' => esc_html__('Square', 'wpelite' ),
-						),
-						'param_name'  => WPE_META_POST.'select',
-						'value' => 'square',
-						'description' => esc_html__( 'select', 'wpelite' ),
-					),
-					array(
-						'type' => 'color',
-						'heading'     => esc_html__('color', 'wpelite' ),
-						'param_name'  => WPE_META_POST.'color',
-						'value' => '#f1f1f1',
-						'description' => esc_html__( 'color', 'wpelite' ),
-					),
-					array(
-						'type' => 'time',
-						'heading'     => esc_html__('time', 'wpelite' ),
-						'param_name'  => WPE_META_POST.'time',
-						'value' => '08:00',
-						'description' => esc_html__( 'time', 'wpelite' ),
-					),
-					array(
-						'type' => 'date_time',
-						'heading'     => esc_html__('date_time', 'wpelite' ),
-						'param_name'  => WPE_META_POST.'date_time',
-						'value' => '2020-01-01T01:00',
-						'description' => esc_html__( 'date_time', 'wpelite' ),
-					),
-				)
-			);
-			return $options;
 		}
         
     }
