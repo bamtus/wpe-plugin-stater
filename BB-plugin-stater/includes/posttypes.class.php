@@ -22,7 +22,6 @@ if ( ! class_exists( 'BB_PLUGIN_POSTTYPES' ) ) {
 		function __construct() {
 			$this->init();
 			add_filter( 'bb_register_posttypes', array( $this, 'register_posttypes' ), 10, 1 );
-			add_filter( 'bb_add_meta_box', array( $this, 'add_meta_boxes' ), 10, 1 );
 		}
 
 		public function init() {
@@ -34,7 +33,6 @@ if ( ! class_exists( 'BB_PLUGIN_POSTTYPES' ) ) {
 
         }
 		public function adminEnqueueScripts() {
-			BestBug_Core_Meta_Box::adminEnqueueScripts();
 		}
 		public function enqueueScripts(){
 		}
@@ -87,79 +85,6 @@ if ( ! class_exists( 'BB_PLUGIN_POSTTYPES' ) ) {
 			return $posttypes;
 		}
 
-		public function add_meta_boxes($options) {
-			$options[] = array(
-				'ID' => 'whatsapp-account-info',
-				'title' => 'Account Information',
-				'post_type'=> BB_PLUGIN_POSTTYPE,
-				'context' => 'normal',
-				'fields' => array(
-					array(
-						'type' => 'text',
-						'heading'     => esc_html__('text', 'bestbug' ),
-						'param_name'  => BB_META_POST.'text',
-						'value' => 'ahihi11111',
-						'description' => esc_html__( 'text', 'bestbug' ),
-					),
-					array(
-						'type' => 'textarea',
-						'heading'     => esc_html__('textarea', 'bestbug' ),
-						'cols'=>"3",
-						'rows'=>"3",
-						'param_name'  => BB_META_POST.'textarea',
-						'value' => 'ahihi11111',
-						'description' => esc_html__( 'textarea', 'bestbug' ),
-					),
-					array(
-						'type' => 'radio',
-						'heading'     => esc_html__('radio', 'bestbug' ),
-						'options'=> array(
-							'round' => esc_html__('Round', 'bestbug' ),
-							'square' => esc_html__('Square', 'bestbug' ),
-						),
-						'horizontal' => 'yes',
-						'param_name'  => BB_META_POST.'radio',
-						'value' => 'square',
-						'description' => esc_html__( 'radio', 'bestbug' ),
-					),
-					array(
-						'type' => 'select',
-						'heading'     => esc_html__('radio', 'bestbug' ),
-						'options'=> array(
-							'round' => esc_html__('Round', 'bestbug' ),
-							'square' => esc_html__('Square', 'bestbug' ),
-						),
-						'param_name'  => BB_META_POST.'select',
-						'value' => 'square',
-						'description' => esc_html__( 'select', 'bestbug' ),
-					),
-					array(
-						'type' => 'color',
-						'heading'     => esc_html__('color', 'bestbug' ),
-						'param_name'  => BB_META_POST.'color',
-						'value' => '#f1f1f1',
-						'description' => esc_html__( 'color', 'bestbug' ),
-					),
-					array(
-						'type' => 'time',
-						'heading'     => esc_html__('time', 'bestbug' ),
-						'param_name'  => BB_META_POST.'time',
-						'value' => '08:00',
-						'description' => esc_html__( 'time', 'bestbug' ),
-					),
-					array(
-						'type' => 'date_time',
-						'heading'     => esc_html__('date_time', 'bestbug' ),
-						'param_name'  => BB_META_POST.'date_time',
-						'value' => '2020-01-01T01:00',
-						'description' => esc_html__( 'date_time', 'bestbug' ),
-					),
-				)
-			);
-			return $options;
-		}
-
-		
     }
 	
 	new BB_PLUGIN_POSTTYPES();

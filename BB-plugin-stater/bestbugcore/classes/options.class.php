@@ -141,6 +141,7 @@ if ( ! class_exists( 'BestBug_Core_Options' ) ) {
 							'checkbox',
 							'hidden',
 							'text',
+							'tab',
 						);
 						
 				if(in_array($field['type'], $allow)) {
@@ -203,6 +204,7 @@ if ( ! class_exists( 'BestBug_Core_Options' ) ) {
 							'checkbox',
 							'hidden',
 							'text',
+							'tab',
 						);
 						
 				if(in_array($field['type'], $allow)) {					

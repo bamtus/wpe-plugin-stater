@@ -906,6 +906,41 @@
 .bbfb_content_page_bb_footer_builder .bb-wrap.bb-settings .button.success {
   height: 40px !important; }
 
+.bb-field-tab {
+  padding-bottom: 0px !important;
+  border-bottom: 1px solid #ddd !important; }
+  .bb-field-tab .bb-field-tab-ul {
+    padding-left: 5px;
+    display: block;
+    margin: 0px; }
+    .bb-field-tab .bb-field-tab-ul li {
+      background: #ffff;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      margin-bottom: -1px;
+      display: inline-grid; }
+      .bb-field-tab .bb-field-tab-ul li input[type=radio] {
+        visibility: hidden;
+        opacity: 0;
+        display: none; }
+      .bb-field-tab .bb-field-tab-ul li input[type=radio]:checked ~ label {
+        background: #fff;
+        border-bottom: 1px solid #fff;
+        color: #000; }
+      .bb-field-tab .bb-field-tab-ul li label {
+        background: #eaeaea;
+        font-size: 16px;
+        font-weight: 600;
+        color: #414141;
+        padding: 10px 18px;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd; }
+
+.bb_tab_hiden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important; }
+
 .bb-ajax-loading {
   position: fixed;
   z-index: 999999;
@@ -1062,6 +1097,34 @@
     display: none; }
   .remove_all input[type=hidden] {
     display: none; }
+
+.bb-meta_box-field-tab-ul {
+  border-bottom: 1px solid #ccc;
+  margin: 0px;
+  display: block; }
+  .bb-meta_box-field-tab-ul .bb-field-tab-li {
+    margin-bottom: -1px;
+    background: #fff;
+    display: inline-block; }
+    .bb-meta_box-field-tab-ul .bb-field-tab-li:first-child {
+      margin-left: 10px; }
+    .bb-meta_box-field-tab-ul .bb-field-tab-li input {
+      display: none;
+      opacity: 0;
+      visibility: hidden; }
+    .bb-meta_box-field-tab-ul .bb-field-tab-li input[type=radio]:checked ~ .bb-field-tab-title {
+      background: #fff;
+      border-bottom: 1px solid #fff;
+      color: #000; }
+    .bb-meta_box-field-tab-ul .bb-field-tab-li .bb-field-tab-title {
+      background: #eaeaea;
+      font-size: 16px;
+      font-weight: 600;
+      color: #414141;
+      border: 1px solid #ccc;
+      padding: 10px 18px; }
+      .bb-meta_box-field-tab-ul .bb-field-tab-li .bb-field-tab-title label {
+        padding: 10px 18px; }
 
 html #adminmenu .wp-menu-image img {
   padding-top: 7px; }

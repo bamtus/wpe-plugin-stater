@@ -21,6 +21,7 @@ defined( 'BB_PLUGIN_PATH' ) or define('BB_PLUGIN_PATH', basename( dirname( __FIL
 defined( 'BB_PLUGIN_TEXTDOMAIN' ) or define('BB_PLUGIN_TEXTDOMAIN', plugins_url( '/', __FILE__ )) ;
 defined( 'BB_PLUGIN_POSTTYPE' ) or define('BB_PLUGIN_POSTTYPE','bb-core') ;
 defined( 'BB_META_POST' ) or define('BB_META_POST','bb_meta_') ;
+defined( 'BB_PLUGIN_PAGESLUG' ) or define('BB_PLUGIN_PAGESLUG','bb_meta_') ;
 if ( ! class_exists( 'BB_PLUGIN_CLASS' ) ) {
 	/**
 	 * BB_PLUGIN_CLASS Class

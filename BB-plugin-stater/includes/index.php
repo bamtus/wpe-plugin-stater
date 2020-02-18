@@ -5,8 +5,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // include "helper.class.php";
-include "posttypes.class.php";
+// include "posttypes.class.php";
 // include "options.class.php";
+// include "meta_box.class.php";
 // include "filter.class.php";
 
 // if(class_exists('WooCommerce')) {

@@ -192,8 +192,15 @@
 					__value = $self.data('value').split(',');
 				$self.css({display: 'none'});
 				$self.addClass('bb-row-hidden');
-				if(__value.indexOf( $('#' + $self.data('element')).val() ) < 0 ) {
-					return true;
+
+				if ($('#' + $self.data('element')).length >0) {
+					if(__value.indexOf( $('#' + $self.data('element')).val() ) < 0 ) {
+						return true;
+					}
+				} else {
+					if(__value.indexOf( $('[name="'+$self.data('element')+'"]:checked').val() ) < 0 ) {
+						return true;
+					}
 				}
 				
 				if($('#' + $self.data('element')).closest('.bb-field-row').hasClass('bb-row-hidden')) {
@@ -209,10 +216,39 @@
 		$('.bb-field-row[data-dependency="true"]').each(function(index){
 			var $self = $(this);
 			$self.addClass('bb-row-hidden');
-			$('#' + $self.data('element')).on('change', function(){
-				bb_dependency();
-			});
+
+			if ($('#' + $self.data('element')).length >0) {
+				$('#' + $self.data('element')).on('change', function(){
+					bb_dependency();
+				});
+			} else {
+				$($('[name="'+$self.data('element')+'"]')).on('change', function(){
+					bb_dependency();
+				});
+			}
+
+			
 		});
+		// option tab
+		$.each($('[tab="tab"]'),function(){
+			if($(this).attr('tab-value') != $('[name="'+$(this).attr('tab-element')+'"]:checked').val() ) {
+				$(this).addClass('bb_tab_hiden');
+			}else{
+				$(this).removeClass('bb_tab_hiden');
+			}
+		})
+		$('.bb-tab-parent').on('change',function(){
+			var valeData = $(this).val();
+			$.each($('[tab-element="'+$(this).attr('name')+'"]'),function(){
+				if($(this).attr('tab-value')!= valeData) {
+					$(this).addClass('bb_tab_hiden');
+				}else{
+					$(this).removeClass('bb_tab_hiden');
+				}
+			})
+		})
+
+		
 
 		$( '.bb-field-row .plus, .bb-field-row .minus' ).on( 'click', function() {
 			

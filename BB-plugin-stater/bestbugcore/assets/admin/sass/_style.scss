@@ -2,11 +2,12 @@
 @import "layout";
 @import "mini-form";
 @import "fields/fields";
+@import "fields/tab";
 @import "loading";
 @import "vc_layout";
 @import "metabox";
 @import "new_style";
-
+@import "meta_box";
 html #adminmenu .wp-menu-image img {
     padding-top: 7px;
 }
