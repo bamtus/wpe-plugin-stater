@@ -949,6 +949,7 @@ if (!class_exists('BestBug_Extend_VcParams_Responsive')) {
 		}
 
 		public function update_css($post_id) {
+			$_POST = BestBug_Helper::sanitize_data($_POST);
 			if ( ( isset( $_POST['wp-preview'] ) && 'dopreview' === $_POST['wp-preview'] ) ) {
 				add_post_meta($post_id, '_bbrp_shortcodes_custom_css', $this->post_css);
 				update_post_meta($post_id, '_bbrp_shortcodes_custom_css', $this->post_css);

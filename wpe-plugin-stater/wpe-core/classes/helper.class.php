@@ -27,7 +27,28 @@ if (!class_exists('BestBug_Helper')) {
 			add_action('wp_footer', array($this, 'develop'));
 			add_action('admin_footer', array($this, 'develop'));
 		}
-
+		public static function sanitize_data($post){
+			function sanitize_array_field($array){
+				if (is_array($array)) {
+					foreach ($array as $key => &$value) {
+						if (is_array($value)) {
+							$value = sanitize_array_field($value);
+						} elseif( is_string($value) ) {
+							$value = sanitize_text_field($value);
+						}
+					}
+				}
+				return $array;
+			}
+			foreach ($post as $key => &$value) {
+				if (is_string($value)) {
+					$value = sanitize_text_field($value);
+				}elseif (is_array($value)) {
+					$value = sanitize_array_field($value);
+				}
+			}
+			return $post;
+		}
 		public static function update_option($option_name, $option_value)
 		{
 			$option_exists = (get_option($option_name, null));
@@ -82,6 +103,7 @@ if (!class_exists('BestBug_Helper')) {
 
 		public static function begin_wrap_html($page_title)
 		{
+			$_GET = BestBug_Helper::sanitize_data( $_GET );
 			?>
 			<div class="wrap bb-wrap bb-settings" id="<?php echo esc_attr($_GET['page']) ?>">
 			    <h2 class="bb-headtitle"><?php echo esc_html($page_title) ?></h2>

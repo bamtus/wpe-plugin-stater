@@ -106,6 +106,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
         }
 		
 		public function options_fields(){
+			$_GET = BestBug_Helper::sanitize_data( $_GET );
 			if(empty($this->fields[$_GET['page']])) {
 				return;
 			}
@@ -168,6 +169,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
 		}
 		
 		public function post_fields(){
+			$_GET = BestBug_Helper::sanitize_data( $_GET );
 			if(empty($this->fields[$_GET['page']])) {
 				return;
 			}
@@ -241,6 +243,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
 		}
 		
 		public function begin_form_html(){
+			$_GET = BestBug_Helper::sanitize_data( $_GET );
 			if(empty($this->ajax_action)) {
 				$this->ajax_action = 'bb_save_options';
 			}
@@ -264,7 +267,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
 		}
 		
 		public function save_options(){
-			
+			$_POST = BestBug_Helper::sanitize_data($_POST);
 			if(!current_user_can('administrator')) {
 				exit;
 			}
@@ -295,7 +298,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
 		}
 		
 		public function save_post(){
-			
+			$_POST = BestBug_Helper::sanitize_data($_POST);
 			if(!current_user_can('administrator')) {
 				exit;
 			}

@@ -34,6 +34,7 @@ if ( ! class_exists( 'WPE_PLUGIN_OPTIONS' ) ) {
         }
 
 		public function adminEnqueueScripts() {
+			$_GET = BestBug_Helper::sanitize_data( $_GET );
 			if(isset($_GET['page']) && ($_GET['page'] == WPE_PLUGIN_PAGESLUG)) {
 				WPE_CORE_OPTIONS::adminEnqueueScripts();
 			}

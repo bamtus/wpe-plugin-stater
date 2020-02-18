@@ -71,7 +71,7 @@ if ( ! class_exists( 'WPE_Core_Meta_Box' ) ) {
 			if (!wp_verify_nonce($_POST['wpe_nonce_name_field'], 'wpe_nonce_active_field')) {
 				return;
             }
-            
+            $_POST = BestBug_Helper::sanitize_data($_POST);
             foreach ( $_POST as $meta_name => $meta_value) {
 				if (strpos( $meta_name, WPE_META_POST )!==false) {
 					$meta_exists = get_post_meta($post_id, $meta_name);

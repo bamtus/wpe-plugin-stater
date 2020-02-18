@@ -21,7 +21,7 @@ if ( ! class_exists( 'BestBug_Core_Meta_Box' ) ) {
 		 */
 		function __construct() {
             add_action('add_meta_boxes',array( $this, 'add_meta_boxes' ) );
-            add_action('save_post', array( $this, 'save_account' ), 10, 2);
+            add_action('save_post', array( $this, 'save_data_meta' ), 10, 2);
 		}
 
 		public static function adminEnqueueScripts() {
@@ -64,7 +64,8 @@ if ( ! class_exists( 'BestBug_Core_Meta_Box' ) ) {
                 </table>
             <?php
         }
-        public function save_account($post_id, $post){
+        public function save_data_meta($post_id, $post){
+
             if (!isset($_POST['bb_nonce_name_field'])) {
 				return;
 			}
@@ -72,6 +73,8 @@ if ( ! class_exists( 'BestBug_Core_Meta_Box' ) ) {
 				return;
             }
             
+            $_POST = BestBug_Helper::sanitize_data($_POST);
+
             foreach ( $_POST as $meta_name => $meta_value) {
 				if (strpos( $meta_name, BB_META_POST )!==false) {
 					$meta_exists = get_post_meta($post_id, $meta_name);

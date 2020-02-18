@@ -9,4 +9,3 @@
         <p class="description"><?php echo ( $option['description']); ?></p>
     </td>
 </tr>
-    

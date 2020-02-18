@@ -34,6 +34,7 @@ if ( ! class_exists( 'BB_PLUGIN_OPTIONS' ) ) {
         }
 
 		public function adminEnqueueScripts() {
+			$_GET = BestBug_Helper::sanitize_data( $_GET );
 			if(isset($_GET['post_type']) && ($_GET['post_type'] == 'bb-core')) {
 				BestBug_Core_Options::adminEnqueueScripts();
 			}
