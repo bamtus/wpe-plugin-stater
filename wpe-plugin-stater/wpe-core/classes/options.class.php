@@ -210,6 +210,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
 				if(in_array($field['type'], $allow)) {
 					
 					if(isset($_REQUEST['ID']) && !empty($_REQUEST['ID'])) {
+						$_REQUEST = BestBug_Helper::sanitize_data( $_REQUEST );
 						$this->post_id = $_REQUEST['ID'];
 						if($field['param_name'] == 'post_title') {
 							$value_exists = get_the_title($this->post_id);

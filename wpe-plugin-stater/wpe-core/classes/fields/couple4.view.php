@@ -25,6 +25,7 @@
                     
                     foreach ( $fieldNew as $value => $field) {
                         if(isset($_REQUEST['ID']) && !empty($_REQUEST['ID'])) {
+                            $_REQUEST = BestBug_Helper::sanitize_data( $_REQUEST );
                             $this->post_id = $_REQUEST['ID'];
                             $value_exists = (get_post_meta($this->post_id, $field['param_name'].'_'.$count, true));
                             if($value_exists != null) {
