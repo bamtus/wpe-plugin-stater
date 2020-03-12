@@ -65,7 +65,7 @@ if ( ! class_exists( 'WPE_Core_Options' ) ) {
 		}
         
         public function options() {
-            $this->options = apply_filters( 'bb_register_options', array() );
+            $this->options = apply_filters( 'wpe_register_options', array() );
 			
     		if( !isset($this->options) || count($this->options) <= 0 ) {
     			return;

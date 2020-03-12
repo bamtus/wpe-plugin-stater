@@ -85,7 +85,7 @@ if ( ! class_exists( 'BestBug_Core_Options' ) ) {
 					$this->fields[$slug]['button_text'] = $option['button_text'];
 				}
 				if($option['menu']['type'] == 'add_menu_page') {
-					add_menu_page($option['menu']['page_title'],
+					add_menu_page($option['menu']['page_title'], 
 								$option['menu']['menu_title'],
 								$option['menu']['capability'],
 								$option['menu']['menu_slug'],

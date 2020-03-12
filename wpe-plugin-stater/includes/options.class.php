@@ -25,7 +25,7 @@ if ( ! class_exists( 'WPE_PLUGIN_OPTIONS' ) ) {
 
 		public function init() {
 			
-			add_filter('bb_register_options', array( $this, 'options'), 10, 1 );
+			add_filter('wpe_register_options', array( $this, 'options'), 10, 1 );
 
 			if(is_admin()) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'adminEnqueueScripts' ) );
